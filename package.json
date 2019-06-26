@@ -24,7 +24,8 @@
   },
   "scripts": {
     "start:dev": "nodemon --inspect-brk",
-    "start:prod": "node app.js"
+    "start:prod": "node app.js",
+    "start": "npx nodemon app.js"
   },
   "repository": {
     "type": "git"
@@ -33,7 +34,9 @@
     "island"
   ],
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
   "_moduleAliases": {
     "@root": ".",
     "@models": "app/models",
