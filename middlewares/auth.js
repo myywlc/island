@@ -48,8 +48,8 @@ class Auth {
     } catch (error) {
       return false;
     }
-
   }
+
 }
 
 module.exports = {
