@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const { dbName, host, port, user, password } = require('../config/config').database;
+const { dbName, host, port, user, password } = require('../config/config1').database;
 
 const sequelize = new Sequelize(dbName, user, password, {
   dialect: 'mysql',
@@ -20,7 +20,7 @@ const sequelize = new Sequelize(dbName, user, password, {
 
 // 是否操作同步 models 到数据库
 sequelize.sync({
-  force: true, // 删除重置表
+  force: false, // 删除重置表
 });
 
 module.exports = {
