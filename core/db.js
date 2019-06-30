@@ -5,23 +5,22 @@ const sequelize = new Sequelize(dbName, user, password, {
   dialect: 'mysql',
   host,
   port,
-  // logging: true,
-  logging: false,
+  logging: false, // 是否打印 sql 信息
   timezone: '+08:00',
   define: {
-    //create_time  update_time delete_time
-    timestamps: true,
-    paranoid: true,
-    createdAt: 'created_at',
+    timestamps: true, // create_time  update_time
+    paranoid: true, // delete_time
+    createdAt: 'created_at', // 修改默认表字段名
     updatedAt: 'updated_at',
     deletedAt: 'deleted_at',
-    underscored: true,
+    underscored: true, // 把驼峰转换成下划线命名
     freezeTableName: true,
   },
 });
 
+// 是否操作同步 models 到数据库
 sequelize.sync({
-  force: true,
+  force: true, // 删除重置表
 });
 
 module.exports = {
