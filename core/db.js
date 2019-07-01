@@ -15,6 +15,13 @@ const sequelize = new Sequelize(dbName, user, password, {
     deletedAt: 'deleted_at',
     underscored: true, // 把驼峰转换成下划线命名
     freezeTableName: true,
+    scopes: { // 过滤相应字段
+      bh: {
+        attributes: {
+          exclude: ['updated_at', 'deleted_at', 'created_at'],
+        },
+      },
+    },
   },
 });
 
