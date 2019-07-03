@@ -31,18 +31,26 @@ sequelize.sync({
   force: false, // 删除重置表
 });
 
-// Model.prototype.toJSON = function () {
-//   let data = clone(this.dataValues);
-//   unset(data, 'created_at');
-//   unset(data, 'updated_at');
-//   unset(data, 'deleted_at');
-//   if (isArray(this.exclude)) {
-//     this.exclude.forEach(item => {
-//       unset(data, item);
-//     });
-//   }
-//   return data;
-// };
+Model.prototype.toJSON = function () {
+  let data = clone(this.dataValues);
+  unset(data, 'created_at');
+  unset(data, 'updated_at');
+  unset(data, 'deleted_at');
+
+  for (let key in data) {
+    if (key === 'image') {
+      if (!data[key].startsWith('http'))
+        data[key] = global.config.host + data[key];
+    }
+  }
+
+  if (isArray(this.exclude)) {
+    this.exclude.forEach(item => {
+      unset(data, item);
+    });
+  }
+  return data;
+};
 
 module.exports = {
   sequelize,
