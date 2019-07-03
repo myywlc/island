@@ -20,8 +20,8 @@ router.get('/hot_list', async (ctx, next) => {
 
 router.get('/:id/detail', async ctx => {
   const v = await new PositiveIntegerValidator().validate(ctx);
-  const book = new Book(v.get('path.id'));
-  ctx.body = await book.detail();
+  const book = new Book();
+  ctx.body = await book.detail(v.get('path.id'));
 });
 
 router.get('/search', async ctx => {
@@ -51,6 +51,33 @@ router.post('/add/short_comment', new Auth().m, async ctx => {
   });
   Comment.addComment(v.get('body.book_id'), v.get('body.content'));
   success();
+});
+
+router.get('/:book_id/short_comment', new Auth().m, async ctx => {
+  const v = await new PositiveIntegerValidator().validate(ctx, {
+    id: 'book_id',
+  });
+  const book_id = v.get('path.book_id');
+  const comments = await Comment.getComments(book_id);
+  ctx.body = {
+    comments,
+    book_id,
+  };
+});
+
+router.get('/hot_keyword', async ctx => {
+  ctx.body = {
+    'hot': [
+      'Python',
+      '哈利·波特',
+      '村上春树',
+      '东野圭吾',
+      '白夜行',
+      '韩寒',
+      '金庸',
+      '王小波',
+    ],
+  };
 });
 
 module.exports = router;

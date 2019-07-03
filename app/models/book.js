@@ -6,13 +6,9 @@ const { Sequelize, Model } = require('sequelize');
 const { Favor } = require('./favor');
 
 class Book extends Model {
-  constructor(id) {
-    super();
-    this.id = id;
-  }
 
-  async detail() {
-    const url = util.format(global.config.yushu.detailUrl, this.id);
+  async detail(id) {
+    const url = util.format(global.config.yushu.detailUrl, id);
     const detail = await axios.get(url);
     return detail.data;
   }
