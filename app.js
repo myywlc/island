@@ -10,9 +10,9 @@ const catchError = require('./middlewares/exception');
 
 
 const app = new Koa();
+app.use(logger());
 app.use(catchError);
 app.use(parser());
-app.use(logger());
 app.use(static(path.join(__dirname, './static')));
 
 InitManager.initCore(app);
