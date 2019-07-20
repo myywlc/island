@@ -11,7 +11,8 @@ class WXManager {
     const url = util.format(
       global.config.wx.loginUrl,
       global.config.wx.appId,
-      global.config.wx.appSecret, code
+      global.config.wx.appSecret,
+      code,
     );
 
     const result = await axios.get(url);
