@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to island 👋</h1>
 <p>
-  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/npm/v/island.svg">
 </p>
 
 ## Install
