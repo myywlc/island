@@ -15,7 +15,7 @@ const router = new Router({
   prefix: '/v1/book',
 });
 
-router.get('/hot_list', async (ctx, next) => {
+router.get('/hot_list', async ctx => {
   const books = await HotBook.getAll();
   ctx.body = {
     books,
@@ -30,10 +30,9 @@ router.get('/:id/detail', async ctx => {
 
 router.get('/search', async ctx => {
   const v = await new SearchValidator().validate(ctx);
-  const result = await Book.searchFromYuShu(
+  ctx.body = await Book.searchFromYuShu(
     v.get('query.q'), v.get('query.start'), v.get('query.count')
   );
-  ctx.body = result;
 });
 
 router.get('/favor/count', new Auth().m, async ctx => {
@@ -47,8 +46,7 @@ router.get('/:book_id/favor', new Auth().m, async ctx => {
   const v = await new PositiveIntegerValidator().validate(ctx, {
     id: 'book_id',
   });
-  const favor = await Favor.getBookFavor(ctx.auth.uid, v.get('path.book_id'));
-  ctx.body = favor;
+  ctx.body = await Favor.getBookFavor(ctx.auth.uid, v.get('path.book_id'));
 });
 
 router.post('/add/short_comment', new Auth().m, async ctx => {
