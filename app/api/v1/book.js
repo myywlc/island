@@ -31,7 +31,7 @@ router.get('/:id/detail', async ctx => {
 router.get('/search', async ctx => {
   const v = await new SearchValidator().validate(ctx);
   ctx.body = await Book.searchFromYuShu(
-    v.get('query.q'), v.get('query.start'), v.get('query.count')
+    v.get('query.q'), v.get('query.start'), v.get('query.count'),
   );
 });
 
