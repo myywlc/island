@@ -5,7 +5,11 @@ const { Favor } = require('../../models/favor');
 const { Comment } = require('../../models/book-comment');
 const { Auth } = require('../../../middlewares/auth');
 const { success } = require('../../lib/helper');
-const { PositiveIntegerValidator, SearchValidator, AddShortCommentValidator } = require('../../validators/validator');
+const {
+  PositiveIntegerValidator,
+  SearchValidator,
+  AddShortCommentValidator,
+} = require('../../validators/validator');
 
 const router = new Router({
   prefix: '/v1/book',
@@ -26,7 +30,9 @@ router.get('/:id/detail', async ctx => {
 
 router.get('/search', async ctx => {
   const v = await new SearchValidator().validate(ctx);
-  const result = await Book.searchFromYuShu(v.get('query.q'), v.get('query.start'), v.get('query.count'));
+  const result = await Book.searchFromYuShu(
+    v.get('query.q'), v.get('query.start'), v.get('query.count')
+  );
   ctx.body = result;
 });
 

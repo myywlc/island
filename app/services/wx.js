@@ -8,7 +8,11 @@ const { Auth } = require('../../middlewares/auth');
 class WXManager {
 
   static async codeToToken(code) {
-    const url = util.format(global.config.wx.loginUrl, global.config.wx.appId, global.config.wx.appSecret, code);
+    const url = util.format(
+      global.config.wx.loginUrl,
+      global.config.wx.appId,
+      global.config.wx.appSecret, code
+    );
 
     const result = await axios.get(url);
     if (result.status !== 200) {
