@@ -53,7 +53,7 @@ router.post('/add/short_comment', new Auth().m, async ctx => {
   const v = await new AddShortCommentValidator().validate(ctx, {
     id: 'book_id',
   });
-  Comment.addComment(v.get('body.book_id'), v.get('body.content'));
+  await Comment.addComment(v.get('body.book_id'), v.get('body.content'));
   success();
 });
 
