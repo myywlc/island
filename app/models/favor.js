@@ -64,7 +64,7 @@ class Favor extends Model {
         type,
       },
     });
-    return favor ? true : false;
+    return !!favor;
   }
 
   static async getMyClassicFavors(uid) {
