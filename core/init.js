@@ -12,8 +12,7 @@ class InitManager {
 
   static loadConfig(path = '') {
     const configPath = path || process.cwd() + '/config/config.js';
-    const config = require(configPath);
-    global.config = config;
+    global.config = require(configPath);
   }
 
   static initLoadRouters() {
@@ -31,8 +30,7 @@ class InitManager {
   }
 
   static loadHttpException() {
-    const errors = require('./http-exception');
-    global.errs = errors;
+    global.errs = require('./http-exception');
   }
 }
 
