@@ -52,6 +52,15 @@ Model.prototype.toJSON = function () {
   return data;
 };
 
+// sequelize.close(); // 关闭MySQL连接
+
+// mysql 连接状态查询
+sequelize.authenticate().then(() => {
+  console.info('数据库连接成功');
+}).catch(err => {
+  console.error('数据库连接失败');
+});
+
 module.exports = {
   sequelize,
 };
