@@ -14,13 +14,12 @@ class Book extends Model {
   }
 
   static async getMyFavorBookCount(uid) {
-    const count = await Favor.count({
+    return await Favor.count({
       where: {
         type: 400,
         uid,
       },
     });
-    return count;
   }
 
   static async searchFromYuShu(q, start, count, summary = 1) {
