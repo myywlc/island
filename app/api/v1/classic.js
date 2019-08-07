@@ -9,7 +9,7 @@ const router = new Router({
   prefix: '/v1/classic',
 });
 
-router.get('/latest', new Auth().m, async (ctx, next) => {
+router.get('/latest', new Auth().m, async (ctx) => {
   const flow = await Flow.findOne({
     order: [
       ['index', 'DESC'],
