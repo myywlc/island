@@ -1,6 +1,8 @@
 const { Sequelize, Model } = require('sequelize');
 const { clone, unset, isArray } = require('lodash');
-const { dbName, host, port, user, password } = require('../config/config').database;
+const { database } = require('../config/config');
+
+const { dbName, host, port, user, password } = database;
 
 const sequelize = new Sequelize(dbName, user, password, {
   dialect: 'mysql',
