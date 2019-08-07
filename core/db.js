@@ -15,7 +15,7 @@ const sequelize = new Sequelize(dbName, user, password, {
     updatedAt: 'updated_at',
     deletedAt: 'deleted_at',
     underscored: true, // 把驼峰转换成下划线命名
-    freezeTableName: true,
+    freezeTableName: true, // 禁止表名复数
     scopes: { // 过滤相应字段
       bh: {
         attributes: {
@@ -51,6 +51,15 @@ Model.prototype.toJSON = function () {
   }
   return data;
 };
+
+// sequelize.close(); // 关闭MySQL连接
+
+// mysql 连接状态查询
+sequelize.authenticate().then(() => {
+  console.info('数据库连接成功');
+}).catch(err => {
+  console.error('数据库连接失败');
+});
 
 module.exports = {
   sequelize,
