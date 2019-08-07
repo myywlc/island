@@ -65,6 +65,7 @@ class Art {
         break;
       case 300:
         arts = await Sentence.scope(scope).findAll(finder);
+        break;
       case 400:
         break;
       default:
