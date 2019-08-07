@@ -23,12 +23,11 @@ class Comment extends Model {
   }
 
   static async getComments(bookID) {
-    const comments = await Comment.findAll({
+    return await Comment.findAll({
       where: {
         book_id: bookID,
       },
     });
-    return comments;
   }
 }
 
