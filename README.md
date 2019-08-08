@@ -15,6 +15,11 @@ npm install
 npm run start
 ```
 
+## Author
+
+👤 **lin**
+
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
