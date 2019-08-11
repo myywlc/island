@@ -2,6 +2,7 @@
   "name": "island",
   "version": "1.0.0",
   "main": "app.js",
+  "author": "lin",
   "dependencies": {
     "axios": "^0.18.0",
     "basic-auth": "^2.0.1",
@@ -20,6 +21,9 @@
     "sequelize": "^5.6.1",
     "validator": "^10.11.0"
   },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
   "directories": {
     "test": "test"
   },
@@ -35,9 +39,6 @@
     "island"
   ],
   "license": "MIT",
-  "devDependencies": {
-    "nodemon": "^1.19.1"
-  },
   "_moduleAliases": {
     "@root": ".",
     "@models": "app/models",
