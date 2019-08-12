@@ -1,6 +1,6 @@
 {
   "name": "island",
-  "version": "1.2.0",
+  "version": "1.2.3",
   "main": "app.js",
   "author": "lin",
   "dependencies": {
