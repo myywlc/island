@@ -11,7 +11,7 @@ const sequelize = new Sequelize(dbName, user, password, {
   logging: false, // 是否打印 sql 信息
   timezone: '+08:00',
   define: {
-    timestamps: true, // create_time  update_time
+    timestamps: true, // create_time update_time
     paranoid: true, // delete_time
     createdAt: 'created_at', // 修改默认表字段名
     updatedAt: 'updated_at',
