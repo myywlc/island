@@ -3,6 +3,7 @@
   "version": "1.2.3",
   "main": "app.js",
   "author": "lin",
+  "type": "module",
   "dependencies": {
     "axios": "^0.18.0",
     "basic-auth": "^2.0.1",
