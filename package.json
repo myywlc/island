@@ -36,7 +36,9 @@
     "type": "git"
   },
   "keywords": [
-    "island"
+    "island",
+    "koa",
+    "server"
   ],
   "license": "MIT",
   "_moduleAliases": {
