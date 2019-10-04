@@ -33,7 +33,6 @@ const findMembers = function (instance, { prefix, specifiedType, filter }) {
   return _find(instance);
 };
 
-
 const generateToken = function (uid, scope) {
   const secretKey = global.config.security.secretKey;
   const expiresIn = global.config.security.expiresIn;
