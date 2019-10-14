@@ -16,7 +16,7 @@ router.post('/register', async (ctx) => {
   };
 
   await User.create(user);
-  success()
+  success();
 });
 
 module.exports = router;
