@@ -4,6 +4,11 @@
   "main": "app.js",
   "author": "lin",
   "type": "module",
+  "scripts": {
+    "start:dev": "nodemon --inspect-brk",
+    "start:prod": "node app.js",
+    "start": "npx nodemon app.js"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "basic-auth": "^2.0.1",
@@ -27,11 +32,6 @@
   },
   "directories": {
     "test": "test"
-  },
-  "scripts": {
-    "start:dev": "nodemon --inspect-brk",
-    "start:prod": "node app.js",
-    "start": "npx nodemon app.js"
   },
   "repository": {
     "type": "git"
