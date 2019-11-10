@@ -16,4 +16,6 @@ app.use(statics(path.join(__dirname, './static')));
 
 InitManager.initCore(app);
 
-app.listen(3000);
+app.listen(3000, () => {
+  console.log('listen on 3000');
+});
