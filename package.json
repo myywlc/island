@@ -3,7 +3,6 @@
   "version": "1.2.3",
   "main": "app.js",
   "author": "lin",
-  "type": "module",
   "scripts": {
     "start:dev": "nodemon --inspect-brk",
     "start:prod": "node app.js",
