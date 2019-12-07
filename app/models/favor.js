@@ -16,13 +16,16 @@ class Favor extends Model {
       throw new global.errs.LikeError();
     }
     return sequelize.transaction(async t => {
-      await Favor.create({
-        art_id,
-        type,
-        uid,
-      }, {
-        transaction: t,
-      });
+      await Favor.create(
+        {
+          art_id,
+          type,
+          uid,
+        },
+        {
+          transaction: t,
+        },
+      );
       const art = await Art.getData(art_id, type, false);
       await art.increment('fav_nums', {
         by: 1,
@@ -102,19 +105,20 @@ class Favor extends Model {
       like_status: myFavor ? 1 : 0,
     };
   }
-
 }
 
-Favor.init({
-  uid: Sequelize.INTEGER,
-  art_id: Sequelize.INTEGER,
-  type: Sequelize.INTEGER,
-}, {
-  sequelize,
-  tableName: 'favor',
-});
+Favor.init(
+  {
+    uid: Sequelize.INTEGER,
+    art_id: Sequelize.INTEGER,
+    type: Sequelize.INTEGER,
+  },
+  {
+    sequelize,
+    tableName: 'favor',
+  },
+);
 
 module.exports = {
   Favor,
 };
-

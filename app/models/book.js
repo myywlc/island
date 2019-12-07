@@ -6,7 +6,6 @@ const { Sequelize, Model } = require('sequelize');
 const { Favor } = require('./favor');
 
 class Book extends Model {
-
   async detail(id) {
     const url = util.format(global.config.yushu.detailUrl, id);
     const detail = await axios.get(url);
@@ -29,19 +28,22 @@ class Book extends Model {
   }
 }
 
-Book.init({
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
+Book.init(
+  {
+    id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+    },
+    fav_nums: {
+      type: Sequelize.INTEGER,
+      defaultValue: 0,
+    },
   },
-  fav_nums: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0,
+  {
+    sequelize,
+    tableName: 'book',
   },
-}, {
-  sequelize,
-  tableName: 'book',
-});
+);
 
 module.exports = {
   Book,

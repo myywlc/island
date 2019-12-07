@@ -16,9 +16,7 @@ class PositiveIntegerValidator extends LinValidator {
 class RegisterValidator extends LinValidator {
   constructor() {
     super();
-    this.email = [
-      new Rule('isEmail', '不符合Email规范'),
-    ];
+    this.email = [new Rule('isEmail', '不符合Email规范')];
     this.password1 = [
       // 用户指定范围 123456 $^
       new Rule('isLength', '密码至少6个字符，最多32个字符', {
@@ -135,7 +133,6 @@ class Checker {
     if (!this.enumType.isThisType(type)) {
       throw new Error('type参数不合法');
     }
-
   }
 }
 
@@ -146,9 +143,7 @@ class LikeValidator extends PositiveIntegerValidator {
   }
 }
 
-class ClassicValidator extends LikeValidator {
-
-}
+class ClassicValidator extends LikeValidator {}
 
 class SearchValidator extends LinValidator {
   constructor() {
@@ -173,7 +168,6 @@ class SearchValidator extends LinValidator {
       }),
       new Rule('isOptional', '', 20),
     ];
-
   }
 }
 
@@ -183,9 +177,9 @@ class AddShortCommentValidator extends PositiveIntegerValidator {
     this.content = [
       new Rule('isLength', '必须在1到12个字符之间', {
         min: 1,
-        max: 12
-      })
-    ]
+        max: 12,
+      }),
+    ];
   }
 }
 

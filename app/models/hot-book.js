@@ -5,12 +5,10 @@ const { Favor } = require('./favor');
 class HotBook extends Model {
   static async getAll() {
     const books = await HotBook.findAll({
-      order: [
-        'index',
-      ],
+      order: ['index'],
     });
     const ids = [];
-    books.forEach((book) => {
+    books.forEach(book => {
       ids.push(book.id);
     });
     const favors = await Favor.findAll({
@@ -41,15 +39,18 @@ class HotBook extends Model {
   }
 }
 
-HotBook.init({
-  index: Sequelize.INTEGER,
-  image: Sequelize.STRING,
-  author: Sequelize.STRING,
-  title: Sequelize.STRING,
-}, {
-  sequelize,
-  tableName: 'hot_book',
-});
+HotBook.init(
+  {
+    index: Sequelize.INTEGER,
+    image: Sequelize.STRING,
+    author: Sequelize.STRING,
+    title: Sequelize.STRING,
+  },
+  {
+    sequelize,
+    tableName: 'hot_book',
+  },
+);
 
 module.exports = {
   HotBook,

@@ -10,7 +10,7 @@ const router = new Router({
   prefix: '/v1/token',
 });
 
-router.post('/', async (ctx) => {
+router.post('/', async ctx => {
   const v = await new TokenValidator().validate(ctx);
 
   let token;
@@ -31,7 +31,7 @@ router.post('/', async (ctx) => {
   };
 });
 
-router.post('/verify', async (ctx) => {
+router.post('/verify', async ctx => {
   // token
   const v = await new NotEmptyValidator().validate(ctx);
   const result = Auth.verifyToken(v.get('body.token'));

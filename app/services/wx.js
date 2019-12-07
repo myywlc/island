@@ -6,7 +6,6 @@ const { generateToken } = require('../../core/util');
 const { Auth } = require('../../middlewares/auth');
 
 class WXManager {
-
   static async codeToToken(code) {
     const url = util.format(
       global.config.wx.loginUrl,
@@ -31,7 +30,6 @@ class WXManager {
     }
     return generateToken(user.id, Auth.USER);
   }
-
 }
 
 module.exports = {

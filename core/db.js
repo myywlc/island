@@ -18,7 +18,8 @@ const sequelize = new Sequelize(dbName, user, password, {
     deletedAt: 'deleted_at',
     underscored: true, // 把驼峰转换成下划线命名
     freezeTableName: true, // 禁止表名复数
-    scopes: { // 过滤相应字段
+    scopes: {
+      // 过滤相应字段
       bh: {
         attributes: {
           exclude: ['updated_at', 'deleted_at', 'created_at'],
@@ -33,7 +34,7 @@ sequelize.sync({
   force: false, // 删除重置表
 });
 
-Model.prototype.toJSON = function () {
+Model.prototype.toJSON = function() {
   let data = clone(this.dataValues);
   unset(data, 'created_at');
   unset(data, 'updated_at');
@@ -41,8 +42,9 @@ Model.prototype.toJSON = function () {
 
   for (let key in data) {
     if (key === 'image') {
-      if (!data[key].startsWith('http'))
+      if (!data[key].startsWith('http')) {
         data[key] = global.config.host + data[key];
+      }
     }
   }
 
@@ -57,11 +59,14 @@ Model.prototype.toJSON = function () {
 // sequelize.close(); // 关闭MySQL连接
 
 // mysql 连接状态查询
-sequelize.authenticate().then(() => {
-  console.info('数据库连接成功');
-}).catch(err => {
-  console.error('数据库连接失败');
-});
+sequelize
+  .authenticate()
+  .then(() => {
+    console.info('数据库连接成功');
+  })
+  .catch(err => {
+    console.error('数据库连接失败');
+  });
 
 module.exports = {
   sequelize,

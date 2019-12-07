@@ -30,9 +30,7 @@ router.get('/:id/detail', async ctx => {
 
 router.get('/search', async ctx => {
   const v = await new SearchValidator().validate(ctx);
-  ctx.body = await Book.searchFromYuShu(
-    v.get('query.q'), v.get('query.start'), v.get('query.count'),
-  );
+  ctx.body = await Book.searchFromYuShu(v.get('query.q'), v.get('query.start'), v.get('query.count'));
 });
 
 router.get('/favor/count', new Auth().m, async ctx => {
@@ -71,16 +69,7 @@ router.get('/:book_id/short_comment', new Auth().m, async ctx => {
 
 router.get('/hot_keyword', async ctx => {
   ctx.body = {
-    'hot': [
-      'Python',
-      '哈利·波特',
-      '村上春树',
-      '东野圭吾',
-      '白夜行',
-      '韩寒',
-      '金庸',
-      '王小波',
-    ],
+    hot: ['Python', '哈利·波特', '村上春树', '东野圭吾', '白夜行', '韩寒', '金庸', '王小波'],
   };
 });
 

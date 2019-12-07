@@ -13,8 +13,7 @@ class User extends Model {
       throw new global.errs.AuthFailed('账号不存在');
     }
     // user.password === plainPassword
-    const correct = bcrypt.compareSync(
-      plainPassword, user.password);
+    const correct = bcrypt.compareSync(plainPassword, user.password);
     if (!correct) {
       throw new global.errs.AuthFailed('密码不正确');
     }
@@ -36,34 +35,37 @@ class User extends Model {
   }
 }
 
-User.init({
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  nickname: Sequelize.STRING,
-  email: {
-    type: Sequelize.STRING(128),
-    unique: true,
-  },
-  password: {
-    type: Sequelize.STRING,
-    set(val) {
-      // 盐加密
-      const salt = bcrypt.genSaltSync(10);
-      const psw = bcrypt.hashSync(val, salt);
-      this.setDataValue('password', psw);
+User.init(
+  {
+    id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    nickname: Sequelize.STRING,
+    email: {
+      type: Sequelize.STRING(128),
+      unique: true,
+    },
+    password: {
+      type: Sequelize.STRING,
+      set(val) {
+        // 盐加密
+        const salt = bcrypt.genSaltSync(10);
+        const psw = bcrypt.hashSync(val, salt);
+        this.setDataValue('password', psw);
+      },
+    },
+    openid: {
+      type: Sequelize.STRING(64),
+      unique: true,
     },
   },
-  openid: {
-    type: Sequelize.STRING(64),
-    unique: true,
+  {
+    sequelize,
+    tableName: 'user',
   },
-}, {
-  sequelize,
-  tableName: 'user',
-});
+);
 
 module.exports = {
   User,
