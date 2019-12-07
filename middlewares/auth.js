@@ -49,7 +49,6 @@ class Auth {
       return false;
     }
   }
-
 }
 
 module.exports = {

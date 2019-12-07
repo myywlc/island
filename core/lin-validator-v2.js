@@ -5,26 +5,15 @@
  */
 
 const validator = require('validator');
-const {
-  ParameterException,
-} = require('./http-exception');
-const {
-  get,
-  last,
-  set,
-  cloneDeep,
-} = require('lodash');
-const {
-  findMembers,
-} = require('./util');
-
+const { ParameterException } = require('./http-exception');
+const { get, last, set, cloneDeep } = require('lodash');
+const { findMembers } = require('./util');
 
 class LinValidator {
   constructor() {
     this.data = {};
     this.parsed = {};
   }
-
 
   _assembleAllParams(ctx) {
     return {
@@ -91,7 +80,7 @@ class LinValidator {
   }
 
   async _check(key, alias = {}) {
-    const isCustomFunc = typeof (this[key]) == 'function' ? true : false;
+    const isCustomFunc = typeof this[key] == 'function';
     let result;
     if (isCustomFunc) {
       try {
@@ -196,8 +185,9 @@ class Rule {
   }
 
   validate(field) {
-    if (this.name == 'isOptional')
+    if (this.name == 'isOptional') {
       return new RuleResult(true);
+    }
     if (!validator[this.name](field + '', ...this.params)) {
       return new RuleResult(false, this.msg || this.message || '参数错误');
     }
@@ -268,7 +258,6 @@ class RuleField {
     }
   }
 }
-
 
 module.exports = {
   Rule,
