@@ -9,11 +9,11 @@ const InitManager = require('./core/init');
 
 const app = new Koa();
 
-const logFormat = str => {
-  console.log(`${moment().format('YYYY-MM-DD HH:mm:ss.SSS')}: ${str}`);
-};
-
-app.use(logger(logFormat));
+app.use(
+  logger(str => {
+    console.log(`${moment().format('YYYY-MM-DD HH:mm:ss.SSS')}: ${str}`);
+  }),
+);
 app.use(catchError);
 app.use(parser());
 app.use(statics(path.join(__dirname, './static')));
