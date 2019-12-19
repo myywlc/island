@@ -1,20 +1,23 @@
 <h1 align="center">Welcome to island 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/npm/v/island.svg">
+  <a href="https://www.npmjs.com/package/island" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/island.svg">
+  </a>
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
 </p>
-
-> node server
 
 ## Install
 
 ```sh
-npm install
+yarn install
 ```
 
 ## Usage
 
 ```sh
-npm run start
+yarn run start
 ```
 
 ## Author
