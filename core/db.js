@@ -29,6 +29,7 @@ const sequelize = new Sequelize(dbName, user, password, {
   },
 });
 
+
 // 是否操作同步 models 到数据库
 sequelize.sync({
   force: false, // 删除重置表
