@@ -59,7 +59,9 @@ Model.prototype.toJSON = function() {
 // sequelize.close(); // 关闭MySQL连接
 
 // mysql 连接状态查询
-sequelize.authenticate().then(() => {
+sequelize
+  .authenticate()
+  .then(() => {
     console.info('数据库连接成功');
   })
   .catch(err => {
