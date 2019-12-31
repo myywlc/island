@@ -30,9 +30,9 @@ const sequelize = new Sequelize(dbName, user, password, {
 });
 
 // 是否操作同步 models 到数据库
-sequelize.sync({
-  force: false, // 删除重置表
-});
+// sequelize.sync({
+//   force: false, // 删除重置表
+// });
 
 Model.prototype.toJSON = function() {
   let data = clone(this.dataValues);
@@ -59,14 +59,14 @@ Model.prototype.toJSON = function() {
 // sequelize.close(); // 关闭MySQL连接
 
 // mysql 连接状态查询
-sequelize
-  .authenticate()
-  .then(() => {
-    console.info('数据库连接成功');
-  })
-  .catch(err => {
-    console.error('数据库连接失败');
-  });
+// sequelize
+//   .authenticate()
+//   .then(() => {
+//     console.info('数据库连接成功');
+//   })
+//   .catch(err => {
+//     console.error('数据库连接失败');
+//   });
 
 module.exports = {
   sequelize,
