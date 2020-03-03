@@ -1,13 +1,9 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
 var _path = _interopRequireDefault(require("path"));
 
@@ -25,7 +21,12 @@ var _requireDirectory = _interopRequireDefault(require("require-directory"));
 
 var _koaRouter = _interopRequireDefault(require("koa-router"));
 
-// 对于POST请求的处理,把koa2上下文的formData数据解析到ctx.request.body中
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 class InitManager {
   static initCore(app) {
     //入口方法
@@ -45,14 +46,16 @@ class InitManager {
     InitManager.app.use((0, _koaStatic.default)(_path.default.join(process.cwd(), './static')));
   }
 
-  static loadConfig(path = '') {
-    const configPath = path || path.join(__dirname, '../config/index.js');
-    global.config = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(`${configPath}`)));
+  static loadConfig(pathStr = '') {
+    const configPath = pathStr || _path.default.resolve(__dirname, '../config/index.js');
+
+    console.log(configPath, 'configPath');
+    global.config = Promise.resolve().then(() => _interopRequireWildcard(require(`${configPath}`)));
   }
 
   static initLoadRouters() {
     //path config
-    const apiDirectory = _path.default.join(__dirname, '../app/api');
+    const apiDirectory = _path.default.resolve(__dirname, '../app/api');
 
     (0, _requireDirectory.default)(module, apiDirectory, {
       visit: whenLoadModule
@@ -66,7 +69,7 @@ class InitManager {
   }
 
   static loadHttpException() {
-    global.errs = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('./http-exception')));
+    global.errs = Promise.resolve().then(() => _interopRequireWildcard(require('./http-exception')));
   }
 
 }

@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -16,6 +14,8 @@ var _util = _interopRequireDefault(require("util"));
 var _sequelize = require("sequelize");
 
 var _favor = require("./favor");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 class Book extends _sequelize.Model {
   async detail(id) {

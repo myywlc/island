@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -10,6 +8,8 @@ exports.Auth = void 0;
 var _basicAuth = _interopRequireDefault(require("basic-auth"));
 
 var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 class Auth {
   constructor(level) {

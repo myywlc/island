@@ -1,19 +1,19 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Art = void 0;
-
-var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
 var _sequelize = require("sequelize");
 
 var _lodash = require("lodash");
 
 var _classic = require("./classic");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 class Art {
   constructor(art_id, type) {
@@ -24,7 +24,7 @@ class Art {
   async getDetail(uid) {
     const {
       Favor
-    } = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('./favor')));
+    } = Promise.resolve().then(() => _interopRequireWildcard(require('./favor')));
     const art = await Art.getData(this.art_id, this.type);
 
     if (!art) {
@@ -123,7 +123,7 @@ class Art {
       case 400:
         const {
           Book
-        } = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('./book')));
+        } = Promise.resolve().then(() => _interopRequireWildcard(require('./book')));
         art = await Book.scope(scope).findOne(finder);
 
         if (!art) {

@@ -28,14 +28,15 @@ class InitManager {
     InitManager.app.use(statics(path.join(process.cwd(), './static')));
   }
 
-  static loadConfig(path = '') {
-    const configPath = path || path.join(__dirname, '../config/index.js');
+  static loadConfig(pathStr = '') {
+    const configPath = pathStr || path.resolve(__dirname, '../config/index.js');
+    console.log(configPath, 'configPath');
     global.config = import(configPath);
   }
 
   static initLoadRouters() {
     //path config
-    const apiDirectory = path.join(__dirname, '../app/api');
+    const apiDirectory = path.resolve(__dirname, '../app/api');
     requireDirectory(module, apiDirectory, {
       visit: whenLoadModule,
     });

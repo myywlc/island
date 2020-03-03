@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -20,6 +18,8 @@ var _user = require("../../models/user");
 var _auth = require("../../../middlewares/auth");
 
 var _wx = require("../../services/wx");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const router = new _koaRouter.default({
   prefix: '/v1/token'

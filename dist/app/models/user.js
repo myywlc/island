@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -12,6 +10,8 @@ var _bcryptjs = _interopRequireDefault(require("bcryptjs"));
 var _db = require("../../core/db");
 
 var _sequelize = require("sequelize");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 class User extends _sequelize.Model {
   static async verifyEmailPassword(email, plainPassword) {
