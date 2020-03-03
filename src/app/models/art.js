@@ -9,7 +9,7 @@ export class Art {
   }
 
   async getDetail(uid) {
-    const { Favor } = import('./favor');
+    const { Favor } = await import('./favor');
 
     const art = await Art.getData(this.art_id, this.type);
     if (!art) {
@@ -93,7 +93,7 @@ export class Art {
       case 300:
         art = await Sentence.scope(scope).findOne(finder);
       case 400:
-        const { Book } = import('./book');
+        const { Book } = await import('./book');
         art = await Book.scope(scope).findOne(finder);
         if (!art) {
           art = await Book.create({

@@ -28,10 +28,9 @@ class InitManager {
     InitManager.app.use(statics(path.join(process.cwd(), './static')));
   }
 
-  static loadConfig(pathStr = '') {
+  static async loadConfig(pathStr = '') {
     const configPath = pathStr || path.resolve(__dirname, '../config/index.js');
-    console.log(configPath, 'configPath');
-    global.config = import(configPath);
+    global.config = await import(configPath);
   }
 
   static initLoadRouters() {
@@ -48,8 +47,8 @@ class InitManager {
     }
   }
 
-  static loadHttpException() {
-    global.errs = import('./http-exception');
+  static async loadHttpException() {
+    global.errs = await import('./http-exception');
   }
 }
 
