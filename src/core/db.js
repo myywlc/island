@@ -1,8 +1,8 @@
 import { Model, Sequelize } from 'sequelize';
 import { clone, isArray, unset } from 'lodash';
-import { database } from '../config';
+import config from '../config';
 
-const { dbName, host, port, user, password } = database;
+const { dbName, host, port, user, password } = config.database;
 
 export const sequelize = new Sequelize(dbName, user, password, {
   dialect: 'mysql',
