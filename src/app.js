@@ -1,5 +1,5 @@
-const Koa = require('koa');
-const InitManager = require('./core/init');
+import Koa from 'koa';
+import InitManager from './core/init';
 
 const app = new Koa();
 InitManager.initCore(app);
