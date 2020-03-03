@@ -9,7 +9,7 @@ var _sequelize = require("sequelize");
 
 var _lodash = require("lodash");
 
-var _config = require("../config/config");
+var _config = require("../config");
 
 const {
   dbName,

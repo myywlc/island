@@ -29,7 +29,7 @@ class InitManager {
   }
 
   static loadConfig(path = '') {
-    const configPath = path || path.join(__dirname, '../config/config.js');
+    const configPath = path || path.join(__dirname, '../config/index.js');
     global.config = import(configPath);
   }
 

@@ -46,7 +46,7 @@ class InitManager {
   }
 
   static loadConfig(path = '') {
-    const configPath = path || path.join(__dirname, '../config/config.js');
+    const configPath = path || path.join(__dirname, '../config/index.js');
     global.config = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(`${configPath}`)));
   }
 

@@ -1,6 +1,6 @@
 import { Model, Sequelize } from 'sequelize';
 import { clone, isArray, unset } from 'lodash';
-import { database } from '../config/config';
+import { database } from '../config';
 
 const { dbName, host, port, user, password } = database;
 
