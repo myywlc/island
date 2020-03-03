@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _default = {
+const configObj = {
   // prod
   environment: 'dev',
   database: {
@@ -29,4 +29,5 @@ var _default = {
   },
   host: 'http://localhost:3000/'
 };
+var _default = configObj;
 exports.default = _default;

@@ -29,13 +29,13 @@ class InitManager {
   }
 
   static loadConfig(path = '') {
-    const configPath = path || `${process.cwd()}/config/config.js`;
+    const configPath = path || path.join(__dirname, '../config/config.js');
     global.config = import(configPath);
   }
 
   static initLoadRouters() {
     //path config
-    const apiDirectory = `${process.cwd()}/app/api`;
+    const apiDirectory = path.join(__dirname, '../app/api');
     requireDirectory(module, apiDirectory, {
       visit: whenLoadModule,
     });

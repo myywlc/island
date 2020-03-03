@@ -46,13 +46,14 @@ class InitManager {
   }
 
   static loadConfig(path = '') {
-    const configPath = path || `${process.cwd()}/config/config.js`;
+    const configPath = path || path.join(__dirname, '../config/config.js');
     global.config = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require(`${configPath}`)));
   }
 
   static initLoadRouters() {
     //path config
-    const apiDirectory = `${process.cwd()}/app/api`;
+    const apiDirectory = _path.default.join(__dirname, '../app/api');
+
     (0, _requireDirectory.default)(module, apiDirectory, {
       visit: whenLoadModule
     });

@@ -1,4 +1,4 @@
-export default {
+const configObj = {
   // prod
   environment: 'dev',
   database: {
@@ -25,3 +25,5 @@ export default {
   },
   host: 'http://localhost:3000/',
 };
+
+export default configObj;
