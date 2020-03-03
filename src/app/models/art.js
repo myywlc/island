@@ -1,15 +1,15 @@
-const { Op } = require('sequelize');
-const { flatten } = require('lodash');
-const { Movie, Sentence, Music } = require('./classic');
+import { Op } from 'sequelize';
+import { flatten } from 'lodash';
+import { Movie, Music, Sentence } from './classic';
 
-class Art {
+export class Art {
   constructor(art_id, type) {
     this.art_id = art_id;
     this.type = type;
   }
 
   async getDetail(uid) {
-    const { Favor } = require('./favor');
+    const { Favor } = import('./favor');
 
     const art = await Art.getData(this.art_id, this.type);
     if (!art) {
@@ -93,7 +93,7 @@ class Art {
       case 300:
         art = await Sentence.scope(scope).findOne(finder);
       case 400:
-        const { Book } = require('./book');
+        const { Book } = import('./book');
         art = await Book.scope(scope).findOne(finder);
         if (!art) {
           art = await Book.create({
@@ -107,7 +107,3 @@ class Art {
     return art;
   }
 }
-
-module.exports = {
-  Art,
-};

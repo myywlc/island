@@ -1,15 +1,15 @@
-const Router = require('koa-router');
-const { HotBook } = require('../../models/hot-book');
-const { Book } = require('../../models/book');
-const { Favor } = require('../../models/favor');
-const { Comment } = require('../../models/book-comment');
-const { Auth } = require('../../../middlewares/auth');
-const { success } = require('../../lib/helper');
-const {
+import Router from 'koa-router';
+import { HotBook } from '../../models/hot-book';
+import { Book } from '../../models/book';
+import { Favor } from '../../models/favor';
+import { Comment } from '../../models/book-comment';
+import { Auth } from '../../../middlewares/auth';
+import { success } from '../../lib/helper';
+import {
+  AddShortCommentValidator,
   PositiveIntegerValidator,
   SearchValidator,
-  AddShortCommentValidator,
-} = require('../../validators/validator');
+} from '../../validators/validator';
 
 const router = new Router({
   prefix: '/v1/book',
@@ -73,4 +73,4 @@ router.get('/hot_keyword', async ctx => {
   };
 });
 
-module.exports = router;
+export default router;

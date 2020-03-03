@@ -1,11 +1,10 @@
-const { sequelize } = require('../../core/db');
-const axios = require('axios');
-const util = require('util');
-const { Sequelize, Model } = require('sequelize');
+import { sequelize } from '../../core/db';
+import axios from 'axios';
+import util from 'util';
+import { Model, Sequelize } from 'sequelize';
+import { Favor } from './favor';
 
-const { Favor } = require('./favor');
-
-class Book extends Model {
+export class Book extends Model {
   async detail(id) {
     const url = util.format(global.config.yushu.detailUrl, id);
     const detail = await axios.get(url);
@@ -44,7 +43,3 @@ Book.init(
     tableName: 'book',
   },
 );
-
-module.exports = {
-  Book,
-};

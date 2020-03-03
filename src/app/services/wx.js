@@ -1,11 +1,10 @@
-const util = require('util');
-const axios = require('axios');
+import util from 'util';
+import axios from 'axios';
+import { User } from '../models/user';
+import { generateToken } from '../../core/util';
+import { Auth } from '../../middlewares/auth';
 
-const { User } = require('../models/user');
-const { generateToken } = require('../../core/util');
-const { Auth } = require('../../middlewares/auth');
-
-class WXManager {
+export class WXManager {
   static async codeToToken(code) {
     const url = util.format(
       global.config.wx.loginUrl,
@@ -31,7 +30,3 @@ class WXManager {
     return generateToken(user.id, Auth.USER);
   }
 }
-
-module.exports = {
-  WXManager,
-};

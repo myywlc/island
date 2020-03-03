@@ -1,9 +1,9 @@
-const Router = require('koa-router');
-const { Flow } = require('../../models/flow');
-const { Art } = require('../../models/art');
-const { Favor } = require('../../models/favor');
-const { Auth } = require('../../../middlewares/auth');
-const { PositiveIntegerValidator, ClassicValidator } = require('../../validators/validator');
+import Router from 'koa-router';
+import { Flow } from '../../models/flow';
+import { Art } from '../../models/art';
+import { Favor } from '../../models/favor';
+import { Auth } from '../../../middlewares/auth';
+import { ClassicValidator, PositiveIntegerValidator } from '../../validators/validator';
 
 const router = new Router({
   prefix: '/v1/classic',
@@ -91,4 +91,4 @@ router.get('/favor', new Auth().m, async ctx => {
   ctx.body = await Favor.getMyClassicFavors(uid);
 });
 
-module.exports = router;
+export default router;

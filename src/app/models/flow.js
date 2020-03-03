@@ -1,7 +1,7 @@
-const { sequelize } = require('../../core/db');
-const { Sequelize, Model } = require('sequelize');
+import { sequelize } from '../../core/db';
+import { Model, Sequelize } from 'sequelize';
 
-class Flow extends Model {}
+export class Flow extends Model {}
 
 Flow.init(
   {
@@ -14,7 +14,3 @@ Flow.init(
     tableName: 'flow',
   },
 );
-
-module.exports = {
-  Flow,
-};

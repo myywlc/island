@@ -1,7 +1,7 @@
-const basicAuth = require('basic-auth');
-const jwt = require('jsonwebtoken');
+import basicAuth from 'basic-auth';
+import jwt from 'jsonwebtoken';
 
-class Auth {
+export class Auth {
   constructor(level) {
     this.level = level || 1;
     Auth.USER = 8;
@@ -50,7 +50,3 @@ class Auth {
     }
   }
 }
-
-module.exports = {
-  Auth,
-};

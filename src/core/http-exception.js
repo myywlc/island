@@ -1,4 +1,4 @@
-class HttpException extends Error {
+export class HttpException extends Error {
   constructor(msg = '服务器异常', errorCode = 10000, code = 400) {
     super();
     this.errorCode = errorCode;
@@ -7,7 +7,7 @@ class HttpException extends Error {
   }
 }
 
-class ParameterException extends HttpException {
+export class ParameterException extends HttpException {
   constructor(msg, errorCode) {
     super();
     this.code = 400;
@@ -16,7 +16,7 @@ class ParameterException extends HttpException {
   }
 }
 
-class Success extends HttpException {
+export class Success extends HttpException {
   constructor(msg, errorCode) {
     super();
     this.code = 201;
@@ -25,7 +25,7 @@ class Success extends HttpException {
   }
 }
 
-class NotFound extends HttpException {
+export class NotFound extends HttpException {
   constructor(msg, errorCode) {
     super();
     this.msg = msg || '资源未找到';
@@ -34,7 +34,7 @@ class NotFound extends HttpException {
   }
 }
 
-class AuthFailed extends HttpException {
+export class AuthFailed extends HttpException {
   constructor(msg, errorCode) {
     super();
     this.msg = msg || '授权失败';
@@ -43,7 +43,7 @@ class AuthFailed extends HttpException {
   }
 }
 
-class Forbbiden extends HttpException {
+export class Forbbiden extends HttpException {
   constructor(msg, errorCode) {
     super();
     this.msg = msg || '禁止访问';
@@ -52,7 +52,7 @@ class Forbbiden extends HttpException {
   }
 }
 
-class LikeError extends HttpException {
+export class LikeError extends HttpException {
   constructor(msg, error_code) {
     super();
     this.code = 400;
@@ -61,7 +61,7 @@ class LikeError extends HttpException {
   }
 }
 
-class DislikeError extends HttpException {
+export class DislikeError extends HttpException {
   constructor(msg, error_code) {
     super();
     this.code = 400;
@@ -69,14 +69,3 @@ class DislikeError extends HttpException {
     this.error_code = 60002;
   }
 }
-
-module.exports = {
-  HttpException,
-  ParameterException,
-  Success,
-  NotFound,
-  AuthFailed,
-  Forbbiden,
-  LikeError,
-  DislikeError,
-};

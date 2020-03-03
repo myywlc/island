@@ -1,4 +1,4 @@
-const { HttpException } = require('../core/http-exception');
+import { HttpException } from '../core/http-exception';
 
 const catchError = async (ctx, next) => {
   try {
@@ -32,4 +32,4 @@ const catchError = async (ctx, next) => {
   }
 };
 
-module.exports = catchError;
+export default catchError;

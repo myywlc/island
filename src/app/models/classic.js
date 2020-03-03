@@ -1,5 +1,5 @@
-const { sequelize } = require('../../core/db');
-const { Sequelize, Model } = require('sequelize');
+import { sequelize } from '../../core/db';
+import { Model, Sequelize } from 'sequelize';
 
 const classicFields = {
   image: Sequelize.STRING,
@@ -13,21 +13,21 @@ const classicFields = {
   type: Sequelize.TINYINT,
 };
 
-class Movie extends Model {}
+export class Movie extends Model {}
 
 Movie.init(classicFields, {
   sequelize,
   tableName: 'movie',
 });
 
-class Sentence extends Model {}
+export class Sentence extends Model {}
 
 Sentence.init(classicFields, {
   sequelize,
   tableName: 'sentence',
 });
 
-class Music extends Model {}
+export class Music extends Model {}
 
 const musicFields = Object.assign(
   {
@@ -40,9 +40,3 @@ Music.init(musicFields, {
   sequelize,
   tableName: 'music',
 });
-
-module.exports = {
-  Movie,
-  Sentence,
-  Music,
-};

@@ -1,10 +1,10 @@
-const Router = require('koa-router');
-const { TokenValidator, NotEmptyValidator } = require('../../validators/validator');
-const { generateToken } = require('../../../core/util');
-const { LoginType } = require('../../lib/enum');
-const { User } = require('../../models/user');
-const { Auth } = require('../../../middlewares/auth');
-const { WXManager } = require('../../services/wx');
+import Router from 'koa-router';
+import { NotEmptyValidator, TokenValidator } from '../../validators/validator';
+import { generateToken } from '../../../core/util';
+import { LoginType } from '../../lib/enum';
+import { User } from '../../models/user';
+import { Auth } from '../../../middlewares/auth';
+import { WXManager } from '../../services/wx';
 
 const router = new Router({
   prefix: '/v1/token',
@@ -45,4 +45,4 @@ async function emailLogin(account, secret) {
   return generateToken(user.id, Auth.USER);
 }
 
-module.exports = router;
+export default router;

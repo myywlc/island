@@ -1,7 +1,7 @@
-const { sequelize } = require('../../core/db');
-const { Sequelize, Model } = require('sequelize');
+import { sequelize } from '../../core/db';
+import { Model, Sequelize } from 'sequelize';
 
-class Comment extends Model {
+export class Comment extends Model {
   static async addComment(bookID, content) {
     const comment = await Comment.findOne({
       where: {
@@ -45,7 +45,3 @@ Comment.init(
     tableName: 'comment',
   },
 );
-
-module.exports = {
-  Comment,
-};

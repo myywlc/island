@@ -1,10 +1,10 @@
-const { Sequelize, Model } = require('sequelize');
-const { clone, unset, isArray } = require('lodash');
-const { database } = require('../config/config');
+import { Model, Sequelize } from 'sequelize';
+import { clone, isArray, unset } from 'lodash';
+import { database } from '../config/config';
 
 const { dbName, host, port, user, password } = database;
 
-const sequelize = new Sequelize(dbName, user, password, {
+export const sequelize = new Sequelize(dbName, user, password, {
   dialect: 'mysql',
   host,
   port,
@@ -67,7 +67,3 @@ sequelize
   .catch(err => {
     console.error('数据库连接失败');
   });
-
-module.exports = {
-  sequelize,
-};

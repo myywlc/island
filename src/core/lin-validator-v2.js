@@ -4,12 +4,12 @@
  * 微信公众号：林间有风
  */
 
-const validator = require('validator');
-const { ParameterException } = require('./http-exception');
-const { get, last, set, cloneDeep } = require('lodash');
-const { findMembers } = require('./util');
+import validator from 'validator';
+import { ParameterException } from './http-exception';
+import { cloneDeep, get, last, set } from 'lodash';
+import { findMembers } from './util';
 
-class LinValidator {
+export class LinValidator {
   constructor() {
     this.data = {};
     this.parsed = {};
@@ -175,7 +175,7 @@ class RuleFieldResult extends RuleResult {
   }
 }
 
-class Rule {
+export class Rule {
   constructor(name, msg, ...params) {
     Object.assign(this, {
       name,
@@ -258,8 +258,3 @@ class RuleField {
     }
   }
 }
-
-module.exports = {
-  Rule,
-  LinValidator,
-};

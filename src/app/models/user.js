@@ -1,8 +1,8 @@
-const bcrypt = require('bcryptjs');
-const { sequelize } = require('../../core/db');
-const { Sequelize, Model } = require('sequelize');
+import bcrypt from 'bcryptjs';
+import { sequelize } from '../../core/db';
+import { Model, Sequelize } from 'sequelize';
 
-class User extends Model {
+export class User extends Model {
   static async verifyEmailPassword(email, plainPassword) {
     const user = await User.findOne({
       where: {
@@ -66,7 +66,3 @@ User.init(
     tableName: 'user',
   },
 );
-
-module.exports = {
-  User,
-};

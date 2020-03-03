@@ -1,8 +1,8 @@
-const { sequelize } = require('../../core/db');
-const { Sequelize, Model, Op } = require('sequelize');
-const { Art } = require('./art');
+import { sequelize } from '../../core/db';
+import { Model, Op, Sequelize } from 'sequelize';
+import { Art } from './art';
 
-class Favor extends Model {
+export class Favor extends Model {
   // 业务表
   static async like(art_id, type, uid) {
     const favor = await Favor.findOne({
@@ -118,7 +118,3 @@ Favor.init(
     tableName: 'favor',
   },
 );
-
-module.exports = {
-  Favor,
-};

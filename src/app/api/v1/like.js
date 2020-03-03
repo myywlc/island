@@ -1,8 +1,8 @@
-const Router = require('koa-router');
-const { LikeValidator } = require('../../validators/validator');
-const { Favor } = require('../../models/favor');
-const { success } = require('../../lib/helper');
-const { Auth } = require('../../../middlewares/auth');
+import Router from 'koa-router';
+import { LikeValidator } from '../../validators/validator';
+import { Favor } from '../../models/favor';
+import { success } from '../../lib/helper';
+import { Auth } from '../../../middlewares/auth';
 
 const router = new Router({
   prefix: '/v1/like',
@@ -24,4 +24,4 @@ router.post('/cancel', new Auth().m, async ctx => {
   success();
 });
 
-module.exports = router;
+export default router;

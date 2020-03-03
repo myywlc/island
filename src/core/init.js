@@ -1,11 +1,11 @@
-const path = require('path');
-const parser = require('koa-bodyparser'); // 对于POST请求的处理,把koa2上下文的formData数据解析到ctx.request.body中
-const statics = require('koa-static');
-const logger = require('koa-logger');
-const dayjs = require('dayjs');
-const catchError = require('../middlewares/exception');
-const requireDirectory = require('require-directory');
-const Router = require('koa-router');
+import path from 'path';
+import parser from 'koa-bodyparser'; // 对于POST请求的处理,把koa2上下文的formData数据解析到ctx.request.body中
+import statics from 'koa-static';
+import logger from 'koa-logger';
+import dayjs from 'dayjs';
+import catchError from '../middlewares/exception';
+import requireDirectory from 'require-directory';
+import Router from 'koa-router';
 
 class InitManager {
   static initCore(app) {
@@ -30,7 +30,7 @@ class InitManager {
 
   static loadConfig(path = '') {
     const configPath = path || `${process.cwd()}/config/config.js`;
-    global.config = require(configPath);
+    global.config = import(configPath);
   }
 
   static initLoadRouters() {
@@ -48,8 +48,8 @@ class InitManager {
   }
 
   static loadHttpException() {
-    global.errs = require('./http-exception');
+    global.errs = import('./http-exception');
   }
 }
 
-module.exports = InitManager;
+export default InitManager;

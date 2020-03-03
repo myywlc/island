@@ -1,8 +1,8 @@
-const { LinValidator, Rule } = require('../../core/lin-validator-v2');
-const { User } = require('../models/user');
-const { LoginType, ArtType } = require('../lib/enum');
+import { LinValidator, Rule } from '../../core/lin-validator-v2';
+import { User } from '../models/user';
+import { ArtType, LoginType } from '../lib/enum';
 
-class PositiveIntegerValidator extends LinValidator {
+export class PositiveIntegerValidator extends LinValidator {
   constructor() {
     super();
     this.id = [
@@ -13,7 +13,7 @@ class PositiveIntegerValidator extends LinValidator {
   }
 }
 
-class RegisterValidator extends LinValidator {
+export class RegisterValidator extends LinValidator {
   constructor() {
     super();
     this.email = [new Rule('isEmail', '不符合Email规范')];
@@ -55,7 +55,7 @@ class RegisterValidator extends LinValidator {
   }
 }
 
-class TokenValidator extends LinValidator {
+export class TokenValidator extends LinValidator {
   constructor() {
     super();
     this.account = [
@@ -83,7 +83,7 @@ class TokenValidator extends LinValidator {
   }
 }
 
-class NotEmptyValidator extends LinValidator {
+export class NotEmptyValidator extends LinValidator {
   constructor() {
     super();
     this.token = [
@@ -136,16 +136,16 @@ class Checker {
   }
 }
 
-class LikeValidator extends PositiveIntegerValidator {
+export class LikeValidator extends PositiveIntegerValidator {
   constructor() {
     super();
     this.validateType = checkArtType;
   }
 }
 
-class ClassicValidator extends LikeValidator {}
+export class ClassicValidator extends LikeValidator {}
 
-class SearchValidator extends LinValidator {
+export class SearchValidator extends LinValidator {
   constructor() {
     super();
     this.q = [
@@ -171,7 +171,7 @@ class SearchValidator extends LinValidator {
   }
 }
 
-class AddShortCommentValidator extends PositiveIntegerValidator {
+export class AddShortCommentValidator extends PositiveIntegerValidator {
   constructor() {
     super();
     this.content = [
@@ -182,14 +182,3 @@ class AddShortCommentValidator extends PositiveIntegerValidator {
     ];
   }
 }
-
-module.exports = {
-  PositiveIntegerValidator,
-  RegisterValidator,
-  TokenValidator,
-  NotEmptyValidator,
-  LikeValidator,
-  ClassicValidator,
-  SearchValidator,
-  AddShortCommentValidator,
-};
