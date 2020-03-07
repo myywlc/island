@@ -41,8 +41,9 @@ class InitManager {
     });
 
     function whenLoadModule(obj) {
-      if (obj instanceof Router) {
-        InitManager.app.use(obj.routes());
+      const targetRouter = obj.default;
+      if (targetRouter instanceof Router) {
+        InitManager.app.use(targetRouter.routes());
       }
     }
   }
