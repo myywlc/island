@@ -1,12 +1,12 @@
 {
   "name": "island",
   "version": "1.2.3",
-  "main": "dist/app.js",
+  "main": "dist/main.js",
   "author": "lin",
   "scripts": {
     "start:dev": "nodemon --inspect-brk",
-    "start:prod": "node app.js",
-    "start": "node ./dist/app.js",
+    "start:prod": "node main.js",
+    "start": "node ./dist/main.js",
     "prestart": "npx babel src -d dist",
     "compile": "npx babel src -d dist",
     "dev": "nodemon --watch src --exec \"npm run start\""
