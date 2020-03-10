@@ -62,3 +62,4 @@ typings/
 
 .idea
 dist/
+deploy.config.js
