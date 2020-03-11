@@ -4,7 +4,7 @@ import { User } from '../../models/user';
 import { success } from '../../lib/helper';
 
 const router = new Router({
-  prefix: '/v1/user',
+  prefix: '/api/v1/user',
 });
 
 router.post('/register', async ctx => {

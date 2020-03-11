@@ -5,7 +5,7 @@ import { success } from '../../lib/helper';
 import { Auth } from '../../../middlewares/auth';
 
 const router = new Router({
-  prefix: '/v1/like',
+  prefix: '/api/v1/like',
 });
 
 router.post('/', new Auth().m, async ctx => {

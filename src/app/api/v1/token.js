@@ -7,7 +7,7 @@ import { Auth } from '../../../middlewares/auth';
 import { WXManager } from '../../services/wx';
 
 const router = new Router({
-  prefix: '/v1/token',
+  prefix: '/api/v1/token',
 });
 
 router.post('/', async ctx => {

@@ -6,7 +6,7 @@ import { Auth } from '../../../middlewares/auth';
 import { ClassicValidator, PositiveIntegerValidator } from '../../validators/validator';
 
 const router = new Router({
-  prefix: '/v1/classic',
+  prefix: '/api/v1/classic',
 });
 
 router.get('/latest', new Auth().m, async ctx => {
