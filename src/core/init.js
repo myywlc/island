@@ -25,15 +25,17 @@ class InitManager {
     );
     InitManager.app.use(catchError);
     InitManager.app.use(parser());
-    InitManager.app.use(statics(path.join(process.cwd(), './static'), {
-      // maxage: 1000 * 60 * 60 * 24 * 30,
-      setHeaders: (res, path, stats) => {
-        const regex = /.(css|js|gif|jpg|jpeg|png|bmp|swf|ttf|woff|otf|ttc|pfa)$/;
-        if (regex.test(path)) {
-          res.setHeader('Cache-Control', 'max-age=2592000');
-        }
-      }
-    }));
+    InitManager.app.use(
+      statics(path.join(process.cwd(), './static'), {
+        // maxage: 1000 * 60 * 60 * 24 * 30,
+        setHeaders: (res, path, stats) => {
+          const regex = /.(css|js|gif|jpg|jpeg|png|bmp|swf|ttf|woff|otf|ttc|pfa|svg|map)$/;
+          if (regex.test(path)) {
+            res.setHeader('Cache-Control', 'max-age=2592000');
+          }
+        },
+      }),
+    );
   }
 
   static async loadConfig(pathStr = '') {
