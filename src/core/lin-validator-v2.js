@@ -38,7 +38,7 @@ export class LinValidator {
     }
   }
 
-  findMembersFilter = (key) => {
+  findMembersFilter = key => {
     if (/validate([A-Z])\w+/g.test(key)) {
       return true;
     }
@@ -52,7 +52,7 @@ export class LinValidator {
       return true;
     }
     return false;
-  }
+  };
 
   async validate(ctx, alias = {}) {
     this.alias = alias;
