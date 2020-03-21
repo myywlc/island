@@ -185,7 +185,7 @@ export class Rule {
   }
 
   validate(field) {
-    if (this.name == 'isOptional') {
+    if (this.name === 'isOptional') {
       return new RuleResult(true);
     }
     if (!validator[this.name](field + '', ...this.params)) {
