@@ -72,7 +72,7 @@ export class LinValidator {
         errorMsgs.push(result.msg);
       }
     }
-    if (errorMsgs.length != 0) {
+    if (errorMsgs.length !== 0) {
       throw new ParameterException(errorMsgs);
     }
     ctx.v = this;
@@ -227,14 +227,14 @@ class RuleField {
 
   _convert(value) {
     for (let rule of this.rules) {
-      if (rule.name == 'isInt') {
+      if (rule.name === 'isInt') {
         return parseInt(value);
       }
-      if (rule.name == 'isFloat') {
+      if (rule.name === 'isFloat') {
         return parseFloat(value);
       }
-      if (rule.name == 'isBoolean') {
-        return value ? true : false;
+      if (rule.name === 'isBoolean') {
+        return !!value;
       }
     }
     return value;
@@ -242,7 +242,7 @@ class RuleField {
 
   _allowEmpty() {
     for (let rule of this.rules) {
-      if (rule.name == 'isOptional') {
+      if (rule.name === 'isOptional') {
         return true;
       }
     }
@@ -252,7 +252,7 @@ class RuleField {
   _hasDefault() {
     for (let rule of this.rules) {
       const defaultValue = rule.params[0];
-      if (rule.name == 'isOptional') {
+      if (rule.name === 'isOptional') {
         return defaultValue;
       }
     }
