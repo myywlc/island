@@ -102,7 +102,7 @@ export class LinValidator {
 
       if (result.pass) {
         // 如果参数路径不存在，往往是因为用户传了空值，而又设置了默认值
-        if (param.path.length == 0) {
+        if (param.path.length === 0) {
           set(this.parsed, ['default', key], result.legalValue);
         } else {
           set(this.parsed, param.path, result.legalValue);
