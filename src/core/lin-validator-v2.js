@@ -38,7 +38,7 @@ export class LinValidator {
     }
   }
 
-  _findMembersFilter(key) {
+  findMembersFilter = (key) => {
     if (/validate([A-Z])\w+/g.test(key)) {
       return true;
     }
@@ -61,7 +61,7 @@ export class LinValidator {
     this.parsed = cloneDeep(params);
 
     const memberKeys = findMembers(this, {
-      filter: this._findMembersFilter.bind(this),
+      filter: this.findMembersFilter,
     });
 
     const errorMsgs = [];
