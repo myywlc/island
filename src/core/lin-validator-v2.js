@@ -15,7 +15,7 @@ export class LinValidator {
     this.parsed = {};
   }
 
-  _assembleAllParams(ctx) {
+  static assembleAllParams(ctx) {
     return {
       body: ctx.request.body,
       query: ctx.request.query,
@@ -56,7 +56,7 @@ export class LinValidator {
 
   async validate(ctx, alias = {}) {
     this.alias = alias;
-    let params = this._assembleAllParams(ctx);
+    let params = LinValidator.assembleAllParams(ctx);
     this.data = cloneDeep(params);
     this.parsed = cloneDeep(params);
 
