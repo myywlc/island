@@ -80,7 +80,7 @@ export class LinValidator {
   }
 
   async _check(key, alias = {}) {
-    const isCustomFunc = typeof this[key] == 'function';
+    const isCustomFunc = typeof this[key] === 'function';
     let result;
     if (isCustomFunc) {
       try {
