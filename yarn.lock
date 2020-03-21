@@ -100,6 +100,18 @@
     levenary "^1.1.1"
     semver "^5.5.0"
 
+"@babel/helper-create-class-features-plugin@^7.8.3":
+  version "7.8.6"
+  resolved "https://registry.npm.taobao.org/@babel/helper-create-class-features-plugin/download/@babel/helper-create-class-features-plugin-7.8.6.tgz?cache=0&sync_timestamp=1582807512701&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fhelper-create-class-features-plugin%2Fdownload%2F%40babel%2Fhelper-create-class-features-plugin-7.8.6.tgz#243a5b46e2f8f0f674dc1387631eb6b28b851de0"
+  integrity sha1-JDpbRuL48PZ03BOHYx62souFHeA=
+  dependencies:
+    "@babel/helper-function-name" "^7.8.3"
+    "@babel/helper-member-expression-to-functions" "^7.8.3"
+    "@babel/helper-optimise-call-expression" "^7.8.3"
+    "@babel/helper-plugin-utils" "^7.8.3"
+    "@babel/helper-replace-supers" "^7.8.6"
+    "@babel/helper-split-export-declaration" "^7.8.3"
+
 "@babel/helper-create-regexp-features-plugin@^7.8.3":
   version "7.8.6"
   resolved "https://registry.npm.taobao.org/@babel/helper-create-regexp-features-plugin/download/@babel/helper-create-regexp-features-plugin-7.8.6.tgz?cache=0&sync_timestamp=1582806206622&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fhelper-create-regexp-features-plugin%2Fdownload%2F%40babel%2Fhelper-create-regexp-features-plugin-7.8.6.tgz#7fa040c97fb8aebe1247a5c645330c32d083066b"
@@ -272,6 +284,14 @@
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/helper-remap-async-to-generator" "^7.8.3"
     "@babel/plugin-syntax-async-generators" "^7.8.0"
+
+"@babel/plugin-proposal-class-properties@^7.8.3":
+  version "7.8.3"
+  resolved "https://registry.npm.taobao.org/@babel/plugin-proposal-class-properties/download/@babel/plugin-proposal-class-properties-7.8.3.tgz#5e06654af5cd04b608915aada9b2a6788004464e"
+  integrity sha1-XgZlSvXNBLYIkVqtqbKmeIAERk4=
+  dependencies:
+    "@babel/helper-create-class-features-plugin" "^7.8.3"
+    "@babel/helper-plugin-utils" "^7.8.3"
 
 "@babel/plugin-proposal-dynamic-import@^7.8.3":
   version "7.8.3"

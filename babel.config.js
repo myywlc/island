@@ -22,6 +22,7 @@ const presets = [
 const plugins = [
   // 让 Babel 在编译中复用辅助函数，从而减小打包文件体积, 用到的辅助函数都从 @babel/runtime 中去加载
   '@babel/plugin-transform-runtime',
+  '@babel/plugin-proposal-class-properties', // 添加类属性支持
 ];
 
 module.exports = { presets, plugins };
