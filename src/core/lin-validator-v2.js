@@ -96,7 +96,6 @@ export class LinValidator {
     });
 
     const errorMsgs = [];
-    // const map = new Map(memberKeys)
     for (let key of memberKeys) {
       const result = await this._check(key, alias);
       if (!result.success) {
