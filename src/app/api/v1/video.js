@@ -21,7 +21,7 @@ router.get('/file/:id', async ctx => {
 
     if (start >= fileSize) {
       ctx.status = 416;
-      ctx.body = 'Requested range not satisfiable\n' + start + ' >= ' + fileSize;
+      ctx.body = `requested range not satisfiable: ${start} >= ${fileSize}`;
       return;
     }
 
