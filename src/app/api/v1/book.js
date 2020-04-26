@@ -25,7 +25,7 @@ router.get('/hot_list', async ctx => {
 router.get('/:id/detail', async ctx => {
   const v = await new PositiveIntegerValidator().validate(ctx);
   const book = new Book();
-  ctx.body = await book.detail(v.get('path.id'));
+  ctx.body = await Book.detail(v.get('path.id'));
 });
 
 router.get('/search', async ctx => {

@@ -5,14 +5,14 @@ import { Model, Sequelize } from 'sequelize';
 import { Favor } from './favor';
 
 export class Book extends Model {
-  async detail(id) {
+  static async detail(id) {
     const url = util.format(global.config.yushu.detailUrl, id);
     const detail = await axios.get(url);
     return detail.data;
   }
 
   static async getMyFavorBookCount(uid) {
-    return await Favor.count({
+    return Favor.count({
       where: {
         type: 400,
         uid,
