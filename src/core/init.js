@@ -9,7 +9,7 @@ import Router from 'koa-router';
 
 class InitManager {
   static initCore(app) {
-    //入口方法
+    // 入口方法
     InitManager.app = app;
     InitManager.loadKoaMiddleware();
     InitManager.initLoadRouters();
