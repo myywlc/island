@@ -44,7 +44,7 @@ class InitManager {
   }
 
   static initLoadRouters() {
-    //path config
+    // path config
     const apiDirectory = path.resolve(__dirname, '../app/api');
     requireDirectory(module, apiDirectory, {
       visit: whenLoadModule,
