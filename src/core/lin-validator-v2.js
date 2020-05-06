@@ -5,7 +5,7 @@ import { cloneDeep, get, last, set } from 'lodash';
 const findMembers = function(instance, { prefix, specifiedType, filter }) {
   // 递归函数
   function _find(instance) {
-    //基线条件（跳出递归）
+    // 基线条件（跳出递归）
     if (instance.__proto__ === null) {
       return [];
     }
