@@ -3,10 +3,10 @@ const configObj = {
   environment: 'dev',
   database: {
     dbName: 'island',
-    host: 'localhost',
+    host: 'mysql',
     port: 3306,
     user: 'root',
-    password: '',
+    password: '159263',
   },
   security: {
     secretKey: 'abcdefg',
