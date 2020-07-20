@@ -33,7 +33,7 @@ jobs:
           host: "111.229.221.29"
           user: root
           key: ${{ secrets.SERVER_KEY }}
-    - name: Deploy to Server
+    - name: deploy to server
       uses: easingthemes/ssh-deploy@v2.1.1
       env:
         # 本地.ssh文件下的私钥id_rsa，存在secrets的TOKEN中
