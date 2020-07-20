@@ -47,3 +47,4 @@ jobs:
         username: "root"
         host: "111.229.221.29"
         privateKey: ${{ secrets.SERVER_KEY }}
+
