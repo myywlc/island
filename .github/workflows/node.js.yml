@@ -24,6 +24,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: remove images and stop server
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            docker-compose down
+            docker rmi root_node
+          host: "111.229.221.29"
+          user: root
+          key: ${{ secrets.SERVER_KEY }}
     # 部署到腾讯云服务器
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v2.1.1
@@ -39,14 +48,12 @@ jobs:
         # 源目录，相对于$GITHUB_WORKSPACE根目录的路径
         SOURCE: "/"
         # 目标目录
-        TARGET: "/data"
-    - name: ls -a via ssh
+        TARGET: "/root/app/backend-resource"
+    - name: start server
       uses: fifsky/ssh-action@master
       with:
         command: |
-          ls -a
-          docker-compose down
-          docker rmi root_node
+          docker-compose up -d
         host: "111.229.221.29"
         user: root
         key: ${{ secrets.SERVER_KEY }}
