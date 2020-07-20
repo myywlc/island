@@ -40,3 +40,9 @@ jobs:
         SOURCE: "/"
         # 目标目录
         TARGET: "/data"
+    - name: ls -a via ssh
+      uses: garygrossgarten/github-action-ssh@release
+      with:
+        command: ls -a
+        host: "111.229.221.29"
+        privateKey: ${{ secrets.SERVER_KEY }}
