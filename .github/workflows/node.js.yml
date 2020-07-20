@@ -24,15 +24,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: remove docker images and stop server
-      uses: fifsky/ssh-action@master
-      with:
-        command: |
-          docker-compose down
-          docker rmi root_node
-        host: "111.229.221.29"
-        user: root
-        key: ${{ secrets.SERVER_KEY }}
+#    - name: remove docker images and stop server
+#      uses: fifsky/ssh-action@master
+#      with:
+#        command: |
+#          docker-compose down
+#          docker rmi root_node
+#        host: "111.229.221.29"
+#        user: root
+#        key: ${{ secrets.SERVER_KEY }}
     - name: deploy to server
       uses: easingthemes/ssh-deploy@v2.1.4
       env:
