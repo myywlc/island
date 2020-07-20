@@ -9,7 +9,9 @@
     "start": "node ./dist/main.js",
     "prestart": "npx babel src -d dist",
     "compile": "npx babel src -d dist",
-    "dev": "nodemon --watch src --exec \"npm run start\""
+    "dev": "nodemon --watch src --exec \"npm run start\"",
+    "dockerStart": "node ./dist/main.js",
+    "predockerStart": "npx babel src -d dist"
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
