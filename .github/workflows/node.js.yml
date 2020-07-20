@@ -41,10 +41,10 @@ jobs:
         # 目标目录
         TARGET: "/data"
     - name: ls -a via ssh
-      uses: garygrossgarten/github-action-ssh@release
+      uses: fifsky/ssh-action@master
       with:
-        command: docker rmi root_node
-        username: "root"
+        command: |
+          docker rmi root_node
         host: "111.229.221.29"
-        privateKey: ${{ secrets.SERVER_KEY }}
-
+        user: root
+        key: ${{ secrets.SERVER_KEY }}
