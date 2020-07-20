@@ -19,34 +19,34 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: remove docker images and stop server
-      uses: fifsky/ssh-action@master
-      with:
-        command: |
-          docker-compose down
-          docker rmi root_node
-        host: "111.229.221.29"
-        user: root
-        key: ${{ secrets.SERVER_KEY }}
-    - name: deploy to server
-      uses: easingthemes/ssh-deploy@v2.1.4
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SERVER_KEY }}
-        REMOTE_HOST: "111.229.221.29"
-        REMOTE_USER: "root"
-        ARGS: "-avzr --delete"
-        SOURCE: "/"
-        TARGET: "/root/app/backend-resource"
-    - name: start server
-      uses: fifsky/ssh-action@master
-      with:
-        command: |
-          docker-compose up -d
-        host: "111.229.221.29"
-        user: root
-        key: ${{ secrets.SERVER_KEY }}
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: remove docker images and stop server
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            docker-compose down
+            docker rmi root_node
+          host: "111.229.221.29"
+          user: root
+          key: ${{ secrets.SERVER_KEY }}
+      - name: deploy to server
+        uses: easingthemes/ssh-deploy@v2.1.4
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_KEY }}
+          REMOTE_HOST: "111.229.221.29"
+          REMOTE_USER: "root"
+          ARGS: "-avzr --delete"
+          SOURCE: "/"
+          TARGET: "/root/app/backend-resource"
+      - name: start server
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            docker-compose up -d
+          host: "111.229.221.29"
+          user: root
+          key: ${{ secrets.SERVER_KEY }}
