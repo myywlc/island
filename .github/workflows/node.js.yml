@@ -34,7 +34,7 @@ jobs:
           user: root
           key: ${{ secrets.SERVER_KEY }}
       - name: deploy to server
-        uses: easingthemes/ssh-deploy@v2.1.4
+        uses: easingthemes/ssh-deploy@v2.1.1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_KEY }}
           REMOTE_HOST: "111.229.221.29"
