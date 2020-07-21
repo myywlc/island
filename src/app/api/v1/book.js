@@ -69,7 +69,7 @@ router.get('/:book_id/short_comment', new Auth().m, async ctx => {
 
 router.get('/hot_keyword', async ctx => {
   ctx.body = {
-    hot: ['node', 'Python', '哈利·波特', '村上春树', '东野圭吾', '白夜行', '韩寒', '金庸', '王小波'],
+    hot: ['node', 'Python', 'I love you', '哈利·波特', '村上春树', '东野圭吾', '白夜行', '韩寒', '金庸', '王小波'],
   };
 });
 
