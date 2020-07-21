@@ -28,6 +28,7 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           command: |
+            docker-compose up -d
             docker-compose down
             docker rmi root_node
           host: ${{ secrets.SERVER_HOST }}
